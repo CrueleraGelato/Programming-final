@@ -12,6 +12,10 @@ print("Masen")
 class_choice = int(input("1. Pick up the muffin on the teachers desk\n2. Look through the backpack\n3. Grab the pencil on the desk\n4. Go to the hall\nWhat do you want to do: "))
 while True:
     if class_choice != 1 or class_choice != 2 or class_choice != 3 or class_choice != 4:
+        print("That is not an option.")
+    elif class_choice.isnumeric():
+            print("That is not an option.")
+    else:
         if class_choice == 1:
             print("Masen write about picking the muffin up")
             inventory.append("Muffin")
@@ -23,8 +27,6 @@ while True:
         elif class_choice == 4:
             print("Masen write about going to the hall.")
             in_hall = True
-    elif class_choice.isnumeric():
-            print("That is not an option.")
     break
 
 if in_hall == True: 
