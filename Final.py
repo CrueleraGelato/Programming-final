@@ -17,8 +17,12 @@ art1 = """"""
 cafe1 =""""""
 
 while True:
-    if in_classroom == True:
-        class_choice = int(input("1. Pick up the muffin on the teachers desk\n2. Look through the backpack\n3. Grab the pencil on the desk\n4. Go to the hall\nWhat do you want to do: "))
+    class_choice = int(input("1. Pick up the muffin on the teachers desk\n2. Look through the backpack\n3. Grab the pencil on the desk\n4. Go to the hall\nWhat do you want to do: "))
+    if class_choice != 1 or class_choice != 2 or class_choice != 3 or class_choice != 4:
+        print("That is not an option.")
+    elif class_choice.isnumeric():
+            print("That is not an option.")
+    else:
         if class_choice == 1:
             if ("Muffin") in inventory:
                 print("You already have it.")
