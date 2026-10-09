@@ -11,6 +11,7 @@ print("Masen")
 # the next code works do not change it except for writing in the print statement
 class_choice = int(input("1. Pick up the muffin on the teachers desk\n2. Look through the backpack\n3. Grab the pencil on the desk\n4. Go to the hall\nWhat do you want to do: "))
 while True:
+    class_choice = int(input("1. Pick up the muffin on the teachers desk\n2. Look through the backpack\n3. Grab the pencil on the desk\n4. Go to the hall\nWhat do you want to do: "))
     if class_choice != 1 or class_choice != 2 or class_choice != 3 or class_choice != 4:
         print("That is not an option.")
     elif class_choice.isnumeric():
