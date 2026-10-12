@@ -36,6 +36,8 @@ best_items = 0
 last_items = 0
 wins = 0
 
+name = input("What is your name: ").strip().capitalize()
+print(f"Hello {name}! Welcome to our game!")
 
 def load_results():
     global games_played, best_items, last_items, wins
@@ -78,13 +80,13 @@ def choose(options):
             if 1 <= number <= len(options):
                 return options[number - 1]
 
-        print("Please enter a valid number.")
+        print(f"{name}, please enter a valid number, your better than this.")
 
 
 def add_item(item):
     if item not in inventory:
         inventory.append(item)
-        print("You collected: " + item + "!")
+        print(f"{name}, you collected: " + item + "!")
 
 
 def show_inventory():
@@ -93,7 +95,7 @@ def show_inventory():
         for item in inventory:
             print("- " + item)
     else:
-        print("\nYour inventory is empty.")
+        print(f"{name}\nYour inventory is empty.")
 
 
 def item_count():
@@ -118,7 +120,15 @@ def encounter_bunny():
 
     print("\nA strange bunny appears in front of you!")
     print('Bunny: "Ohh, what do we got here?"')
-
+    print(""" 
+                []     []
+                []\\/  []
+                ((|)_(|))
+                /( : )\\
+               | |   | |
+               | |   | |
+                 b   b
+""")
     if second_round:
         print('\nBunny: "You again? You really do want to leave, don\'t you?"')
 
@@ -133,7 +143,7 @@ def encounter_bunny():
             print("The bunny disappears into the shadows.")
             return
 
-        print('\nYou: "Please, can I go home?"')
+        print(f'\n{name}: "Please, can I go home?"')
         print('Bunny: "Maybe. But tell me something first..."')
         print('"Why should I let you go?"')
 
@@ -148,7 +158,7 @@ def encounter_bunny():
             print("The bunny disappears into the shadows.")
             return
 
-        print('\nYou: "I have learned my lesson. I just want to go home."')
+        print(f'\n{name}: "I have learned my lesson. I just want to go home."')
         print('Bunny: "One last question..."')
         print('"What will you do if I let you leave?"')
 
@@ -159,7 +169,7 @@ def encounter_bunny():
         ])
 
         if choice == "Leave quietly and never return":
-            print('\nYou: "I will leave quietly and never come back."')
+            print(f'\n{name}: "I will leave quietly and never come back."')
             print('Bunny: "Fine, I\'ll go if that\'s what you want."')
             print('Bunny: "You are free to go!"')
             bunny_approved_this_round = True
@@ -177,11 +187,11 @@ def encounter_bunny():
         ])
 
         if choice == "Hide":
-            print("You hide behind a nearby object.")
+            print(f"{name} hides behind a nearby object.")
         elif choice == "Say hi":
             print('You: "Hi!"')
         else:
-            print("You wave at the bunny.")
+            print(f"{name} waves at the bunny.")
 
         choice = choose([
             "Ask nicely to be let go",
@@ -220,7 +230,17 @@ def classroom():
 
     while not game_over and in_classroom:
         print("\nCLASSROOM")
-        print("You wake up in an abandoned kindergarten classroom.")
+        print(f"{name} wakes up in an abandoned kindergarten classroom.")
+        print("""
+            (-.-) zzzZZ
+          /(____)\\
+           /    \\
+        """)
+        print("""
+            ( ͡° ͜ʖ ͡° )
+          /(________)\\
+           |        |
+        """)
         print("A muffin sits on the desk.")
         print("A backpack rests underneath the table.")
         print("The classroom door is slightly open.")
@@ -235,13 +255,23 @@ def classroom():
 
         if muffin_saved and knife and not muffin_key:
             options.insert(3, "Cut the muffin with the knife")
-
+            print("""
+             (=;;=;;)
+            \\|_|_|/
+            """)
+            print("""
+            ()=;;=;;;>
+            """)
         if muffin_key and not second_round:
             options.insert(3, "Use the Muffin Key on the exit")
 
         choice = choose(options)
 
         if choice == "Look at the muffin":
+            print("""
+            (^^^ ^^^)
+            \\|_|_|//
+            """)
             muffin_choice = choose([
                 "Eat the muffin",
                 "Save the muffin",
@@ -249,14 +279,15 @@ def classroom():
             ])
 
             if muffin_choice == "Eat the muffin":
-                print("\nYou eat the muffin.")
+                print(f"\n{name} eats the muffin.")
                 print("Everything goes dark.")
-                print("Your attempt has ended.")
+                print(f"{name}s attempt has ended.")
                 game_over = True
 
             elif muffin_choice == "Save the muffin":
                 muffin_saved = True
                 print("You decide to save the muffin for later.")
+                
 
             else:
                 print("You leave the muffin on the desk.")
@@ -266,7 +297,7 @@ def classroom():
                 backpack = True
                 print("\nInside the backpack is an empty lunchbox.")
                 add_item("Lunch Token")
-                print("You put the empty lunchbox back.")
+                print(f"{name} puts the empty lunchbox back.")
             else:
                 print("The backpack is empty except for the lunchbox.")
 
@@ -274,34 +305,34 @@ def classroom():
             if not pencil:
                 pencil = True
                 add_item("Pencil")
-                print("You notice tiny termites crawling on it.")
+                print(f"{name} notices tiny termites crawling on it.")
             else:
-                print("You already picked up the pencil.")
+                print(f"{name} has already picked up the pencil.")
 
         elif choice == "Cut the muffin with the knife":
             if muffin_saved and knife and not muffin_key:
-                print("\nYou carefully cut open the muffin.")
+                print(f"\n{name} carefully cuts open the muffin.")
                 print("Something metallic glints inside.")
                 muffin_key = True
                 add_item("Muffin Key")
-                print("You found the real Muffin Key!")
+                print(f"{name} found the real Muffin Key!")
             else:
-                print("You cannot do that yet.")
+                print(f"{name} cannot do that yet.")
 
         elif choice == "Use the Muffin Key on the exit":
             if muffin_key and not second_round:
-                print("\nYou unlock the main exit with the Muffin Key.")
+                print(f"\n{name} unlocks the main exit with the Muffin Key.")
                 print("The door opens, but there is only another classroom beyond it.")
-                print("You step through, and everything looks familiar.")
+                print(f"{name} steps through, and everything looks familiar.")
                 print("Something has changed, though.")
                 second_round = True
                 bunny_approved_this_round = False
                 in_classroom = True
                 muffin_key = False
                 print("\nSECOND LOOP")
-                print("You need to find a way to escape for real.")
+                print(f"{name} needs to find a way to escape for real.")
             else:
-                print("You cannot use that key right now.")
+                print(f"{name} cannot use that key right now.")
 
         elif choice == "Go to the hall":
             in_classroom = False
@@ -330,7 +361,7 @@ def enter_room(room):
             in_bathroom = False
             return
 
-    print("\nYou enter the " + room.replace("_", " ") + ".")
+    print(f"\n{name} enters the " + room.replace("_", " ") + ".")
 
     check_bunny_encounter()
 
@@ -370,7 +401,7 @@ def hall():
         if choice == "Look at the trophy case":
             if not sticker:
                 add_item("Sticker")
-                print("You peel a sticker off the trophy case.")
+                print(f"{name} peels a sticker off the trophy case.")
                 globals()["sticker"] = True
             else:
                 print("The trophy case is empty of anything useful.")
@@ -394,12 +425,12 @@ def hall():
                 enter_room("cafeteria")
             else:
                 print("The cafeteria door is locked tight.")
-
+            in_hall = True
         elif choice == "Try the main exit":
             if second_round and bunny_approved_this_round:
                 print("\nThe exit unlocks.")
-                print("You step outside into the fresh air.")
-                print("You finally escaped!")
+                print(f"{name} steps outside into the fresh air.")
+                print(f"{name} finally escaped!")
                 game_over = True
                 globals()["won"] = True
 
@@ -448,15 +479,15 @@ def artroom():
                 crayon = True
                 add_item("Crayon")
             else:
-                print("You have already searched the art supplies.")
+                print(f"{name} have already searched the art supplies.")
 
         elif choice == "Take the toothpick":
             if not toothpick:
                 toothpick = True
-                add_item("Toothpick")
+                add_item("Toothpick <=======>")
                 print("It might be useful for a stubborn lock.")
             else:
-                print("You already have the toothpick.")
+                print(f"{name} already have the toothpick.")
 
         elif choice == "Go to the hall":
             in_artroom = False
@@ -488,7 +519,7 @@ def bathroom():
             if not silver_coin:
                 silver_coin = True
                 add_item("Silver Coin")
-                print("You find a silver coin beside the drain.")
+                print(f"{name} find a silver coin beside the drain.")
             else:
                 print("There is nothing else in the sink.")
 
@@ -515,7 +546,6 @@ def bathroom():
         elif choice == "Check inventory":
             show_inventory()
 
-
 def cafeteria():
     global in_cafeteria, cafeteria_unlocked, knife, lunch_sticker
 
@@ -523,7 +553,7 @@ def cafeteria():
 
     if not cafeteria_unlocked:
         if "Toothpick" in inventory:
-            print("\nYou use the toothpick to carefully open the cafeteria lock.")
+            print(f"\n{name} use the toothpick to carefully open the cafeteria lock.")
             cafeteria_unlocked = True
         else:
             print("The cafeteria is locked.")
@@ -531,7 +561,7 @@ def cafeteria():
             return
 
     print("\nCAFETERIA")
-    print("The room is dark. You can barely make out the tables.")
+    print(f"The room is dark. {name} can barely make out the tables.")
 
     choice = choose([
         "Reach for the shiny object",
@@ -543,7 +573,7 @@ def cafeteria():
 
     while not game_over and in_cafeteria:
         if choice == "Reach for the shiny object":
-            print("\nYou reach into the darkness and get a small cut.")
+            print(f"\n{name} reach into the darkness and get a small cut.")
             print("You pull your hand back and decide to be more careful.")
 
         elif choice == "Turn on the lights":
@@ -566,9 +596,9 @@ def cafeteria():
             if not lunch_sticker:
                 lunch_sticker = True
                 add_item("Lunch Sticker")
-                print("You find a sticker stuck beneath a table.")
+                print(f"{name} find a sticker stuck beneath a table.")
             else:
-                print("You find nothing else under the tables.")
+                print(f"{name} find nothing else under the tables.")
 
         elif choice == "Go to the hall":
             in_cafeteria = False
@@ -633,7 +663,7 @@ def play_game():
 
     print("\nKINDERGARTEN: THE DEMON BUNNY")
     print("--------------------------------")
-    print("You wake up in an abandoned kindergarten.")
+    print(f"{name} wake up in an abandoned kindergarten.")
     print("Dust hangs in the air, and the walls are covered in faded drawings.")
     print("A muffin sits on the desk in front of you.")
     print("A pencil lies beside it, and a backpack rests under the table.")
@@ -661,13 +691,24 @@ def play_game():
 
     if won:
         wins += 1
-        print("YOU ESCAPED!")
+        print(f"{name} ESCAPED!")
         print("The abandoned kindergarten fades away.")
-        print("You realize the whole experience was a simulation.")
+        print(f"{name} realize the whole experience was a simulation.")
         print("The principal gives you an A for effort.")
-        print("Your grade: " + get_grade(last_items))
+        print("""
+        (u _u)
+        /)  (\\
+       | (   )|
+         |   |
+         /    \\
+              """)
+        print("Princpal: Hello Fiesty one!")
+        print(f"\n{name}: That is not my name!")
+        print("\nPrincipal: I don't care, anyways")
+        print(f"{name}s grade: " + get_grade(last_items))
+        
     else:
-        print("Your attempt has ended.")
+        print(f"{name}s attempt has ended.")
 
     print("Items collected: " + str(last_items) + "/10")
     print("Grade: " + get_grade(last_items))
