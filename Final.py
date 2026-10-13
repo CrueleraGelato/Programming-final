@@ -221,24 +221,24 @@ def encounter_bunny():
         else:
             print(f"{name} waves at the bunny.")
             print("""
-               (o.o)”/”
-              l(____)
-                l  l   
+                (o.o)”/”
+              |(____)
+                |  |   
             """)
             print("""
-               (o.o)”)”
-              l(____)
-                l  l   
+                (o.o)”)”
+              |(____)
+                |  |   
             """)
             print("""
-               (o.o)”/”
-              l(____)
-                l  l   
+                (o.o)”/”
+              |(____)
+                |  |   
             """)
             print("""
-               (o.o)”)”
-              l(____)
-                l  l   
+                (o.o)”)”
+              |(____)
+                |  |   
             """)
         choice = choose([
             "Ask nicely to be let go",
