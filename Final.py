@@ -147,7 +147,7 @@ def encounter_bunny():
 
     print(r"""&#x20;
                 []     []
-                []\/  []
+                [] \/ []
                 ((|)_(|))
                 /( : )\
                | |   | |
@@ -218,7 +218,26 @@ def encounter_bunny():
             print('You: "Hi!"')
         else:
             print(f"{name} waves at the bunny.")
-
+            print("""
+               (o.o)”/”
+              l(____)
+                l  l   
+            """)
+            print("""
+               (o.o)”)”
+              l(____)
+                l  l   
+            """)
+            print("""
+               (o.o)”/”
+              l(____)
+                l  l   
+            """)
+            print("""
+               (o.o)”)”
+              l(____)
+                l  l   
+            """)
         choice = choose([
             "Ask nicely to be let go",
             "Stand your ground",
@@ -238,6 +257,11 @@ def encounter_bunny():
         else:
             print("You run away, but the bunny catches up to you.")
             print("Your attempt has ended.")
+            print("""
+                (x.x)
+              /(____)\\
+               /    \\
+            """)
             game_over = True
 
 
@@ -296,15 +320,6 @@ def classroom():
         if muffin_saved and knife and not muffin_key:
             options.insert(3, "Cut the muffin with the knife")
 
-            print(r"""
-             (=;;=;;)
-            \|_|_|/
-            """)
-
-            print(r"""
-            ()=;;=;;;>
-            """)
-
         if muffin_key:
             options.insert(3, "Use the Muffin Key on the exit")
 
@@ -312,8 +327,8 @@ def classroom():
 
         if choice == "Look at the muffin":
             print(r"""
-            (^^^ ^^^)
-            \|_|_|//
+           (^^^ ^^^)
+            \|_|_|/
             """)
 
             muffin_choice = choose([
@@ -326,6 +341,11 @@ def classroom():
                 print(f"\n{name} eats the muffin.")
                 print("Everything goes dark.")
                 print(f"{name}s attempt has ended.")
+                print("""
+                   (x.x)
+                 /(____)\\
+                  /    \\
+                 """)
                 game_over = True
 
             elif muffin_choice == "Save the muffin":
@@ -366,8 +386,11 @@ def classroom():
             if muffin_key:
                 print(f"\n{name} unlocks the main exit with the Muffin Key.")
                 print("The door opens, but there is only another classroom beyond it.")
-                print(f"{name} steps through, and everything looks familiar.")
-                print("Something has changed, though.")
+                print(f"{name} steps through, and everything looks familiar, except a poster that lies on the wall saying: Those twitching ears have watched you roam…..find the bunny to make it home")
+                print(f"{name}: What does that mean?")
+                print(f"The seemingly still poster moves, {name} screams")
+                print("Poster: find out....")
+                print("The poster moves back to it's calm state")
 
                 loop_number += 1
                 second_round = loop_number >= 2
