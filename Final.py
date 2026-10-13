@@ -737,7 +737,7 @@ def play_game():
             artroom()
         else:
             classroom()
-
+            
     games_played += 1
     last_items = item_count()
     best_items = max(best_items, last_items)
@@ -753,15 +753,15 @@ def play_game():
 
         print(r"""
         (u _u)
-        /)  (\\
-       | (   )|
-         |   |
-         /    \\
+        /)  (\
+       | (  ) |
+         |  |
+         /  \
               """)
 
-        print("Principal: Hello, feisty one!")
+        print("Principal Ms. Grandma G: Hello, feisty one!")
         print(f"\n{name}: That is not my name!")
-        print("\nPrincipal: I don't care, anyway.")
+        print("\nPrincipal Ms. Grandma G: I don't care, anyway.")
         print(f"{name}s grade: " + get_grade(last_items))
 
     else:
