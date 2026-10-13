@@ -1,3 +1,5 @@
+# WW, CG, LK, MW, CSP, Programming Final
+
 import random
 inventory = []
 game_over = False
