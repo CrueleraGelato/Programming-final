@@ -259,10 +259,10 @@ def encounter_bunny():
         else:
             print("You run away, but the bunny catches up to you.")
             print("Your attempt has ended.")
-            print("""
+            print(r"""
                 (x.x)
-              /(____)\\
-               /    \\
+              /(____)\
+               /    \
             """)
             game_over = True
 
