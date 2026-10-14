@@ -1,5 +1,8 @@
 # WW, CG, LK, MW, CSP, Programming Final
-
+# Masen did ALL of the print statements 
+# Levi did ALL of the ASCII art 
+# Carrera Debugged the entire code 
+# William wrote almost all of the code 
 import random
 inventory = []
 game_over = False
@@ -34,11 +37,11 @@ games_played = 0
 best_items = 0
 last_items = 0
 wins = 0
-
+# Masen did ALL of the print statements 
 name = input("What is your name: ").strip().capitalize()
 print(f"Hello {name}! Welcome to our game!")
 
-
+# William made all this code: 
 def load_results():
     global games_played, best_items, last_items, wins
 
@@ -140,7 +143,7 @@ def reset_loop_items():
     cafeteria_unlocked = False
     bathroom_checked = False
 
-
+# Levi made the bunny photo
 def encounter_bunny():
     global game_over, won, bunny_approved_this_round
 
@@ -156,7 +159,7 @@ def encounter_bunny():
                | |   | |
                  b   b
 """)
-
+# Masen wrote the conversaiton with the bunny 
     if second_round:
         print('\nBunny: "You again? You really do want to leave, don\'t you?"')
 
@@ -206,7 +209,7 @@ def encounter_bunny():
         else:
             print('\nBunny: "Then I suppose you are not ready yet."')
             print("The bunny vanishes into the darkness.")
-
+# Levi did the ASCII art 
     else:
         choice = choose([
             "Hide",
@@ -273,7 +276,7 @@ def check_bunny_encounter():
     elif second_round and random.randint(1, 10) == 1:
         encounter_bunny()
 
-
+# Levi did the ASCII art 
 def classroom():
     global game_over, muffin_saved, backpack, pencil
     global muffin_key, second_round, loop_number, in_classroom, bunny_approved_this_round
@@ -306,7 +309,7 @@ def classroom():
             print(f"{name} enters the classroom.")
 
         display_entry = False
-
+# Carrera wrote about the classroom loop 
         print("A muffin sits on the desk.")
         print("A backpack rests underneath the table.")
         print("The classroom door is slightly open.")
@@ -326,7 +329,7 @@ def classroom():
             options.insert(3, "Use the Muffin Key on the exit")
 
         choice = choose(options)
-
+# Levi did the ASCII art 
         if choice == "Look at the muffin":
             print(r"""
            (^^^ ^^^)
@@ -338,7 +341,7 @@ def classroom():
                 "Save the muffin",
                 "Leave the muffin alone"
             ])
-
+# Levi did the ASCII art 
             if muffin_choice == "Eat the muffin":
                 print(f"\n{name} eats the muffin.")
                 print("Everything goes dark.")
@@ -356,7 +359,7 @@ def classroom():
 
             else:
                 print("You leave the muffin on the desk.")
-
+# Carrera wrote the classroom loop 
         elif choice == "Inspect the backpack":
             if not backpack:
                 backpack = True
@@ -383,7 +386,7 @@ def classroom():
                 print(f"{name} found the real Muffin Key!")
             else:
                 print(f"{name} cannot do that yet.")
-
+# Carrera wrote about the second round 
         elif choice == "Use the Muffin Key on the exit":
             if muffin_key:
                 print(f"\n{name} unlocks the main exit with the Muffin Key.")
@@ -418,7 +421,7 @@ def classroom():
         elif choice == "Check inventory":
             show_inventory()
 
-
+# William wrote everything below: 
 def enter_room(room):
     global in_hall, in_bathroom, in_cafeteria
     global in_artroom, in_classroom, game_over
@@ -504,7 +507,7 @@ def hall():
                 print("The cafeteria door is locked tight.")
 
             in_hall = True
-
+# Carrera did the this loop: 
         elif choice == "Try the main exit":
             if second_round and bunny_approved_this_round:
                 print("\nThe exit unlocks.")
@@ -575,7 +578,7 @@ def artroom():
         elif choice == "Check inventory":
             show_inventory()
 
-
+# William did everything below: 
 def bathroom():
     global in_bathroom, silver_coin, soap_key, paper_star
 
@@ -625,7 +628,7 @@ def bathroom():
         elif choice == "Check inventory":
             show_inventory()
 
-
+# Carrera wrote this fuction 
 def cafeteria():
     global in_cafeteria, cafeteria_unlocked, knife, lunch_sticker
 
@@ -698,7 +701,7 @@ def cafeteria():
                 "Check inventory"
             ])
 
-
+# William did the rest: 
 def play_game():
     global game_over, won, second_round, loop_number, classroom_first_visit
     global bunny_approved_this_round
@@ -775,7 +778,7 @@ def play_game():
         print("The abandoned kindergarten fades away.")
         print(f"{name} realizes the whole experience was a simulation.")
         print("The principal gives you an A for effort.")
-
+# Levi did the ASCII art 
         print(r"""
         (u _u)
         /)  (\
